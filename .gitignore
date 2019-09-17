@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# process and results
+bin/
+build_process/
+libs/
+src/HsrCore/GeneratedFiles/
+*.user
+.vs
