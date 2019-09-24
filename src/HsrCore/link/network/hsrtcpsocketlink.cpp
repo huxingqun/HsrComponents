@@ -10,7 +10,7 @@ HsrTcpSocketLink::HsrTcpSocketLink(QObject *parent)
     connect(m_link_thread_, &HsrTcpSocketLinkThread::workerReady, this, &HsrTcpSocketLink::ready);
     connect(m_link_thread_, &HsrTcpSocketLinkThread::tcpSocketOpenResp, this, &HsrTcpSocketLink::_respOpenLink);
     connect(m_link_thread_, &HsrTcpSocketLinkThread::tcpSocketClosed, this, &HsrTcpSocketLink::_respCloseLink);
-    //connect(m_link_thread_, &TcpSocketLinkThread::bytesReceived, this, &HsrTcpSocketLink::dataReceived);
+    connect(m_link_thread_, &HsrTcpSocketLinkThread::bytesReceived, this, &HsrTcpSocketLink::dataReceived);
 	//m_link_thread_->start();
 }
 

@@ -212,7 +212,7 @@ void HsrTcpSocketLinkThread::run()
     connect(this, &HsrTcpSocketLinkThread::_invokeClose, m_link_worker, &HsrTcpSocketLinkWorker::closeLink);
     connect(m_link_worker, &HsrTcpSocketLinkWorker::tcpSocketClosed, this, &HsrTcpSocketLinkThread::tcpSocketClosed);
     connect(this, &HsrTcpSocketLinkThread::_invokeSendData, m_link_worker, &HsrTcpSocketLinkWorker::sendData);
-	//connect(m_link_worker, &TcpSocketLinkWorker::bytesReceived, this, &TcpSocketLinkThread::bytesReceived);
+	connect(m_link_worker, &HsrTcpSocketLinkWorker::bytesReceived, this, &HsrTcpSocketLinkThread::bytesReceived);
 
 	m_ready_ = true;
 	emit workerReady(true);

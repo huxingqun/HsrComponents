@@ -10,7 +10,7 @@ HsrSerialPortLink::HsrSerialPortLink(QObject *parent)
     connect(m_link_thread_, &HsrSerialPortLinkThread::workerReady, this, &HsrSerialPortLink::ready);
     connect(m_link_thread_, &HsrSerialPortLinkThread::serialPortOpenResp, this, &HsrSerialPortLink::_respOpenLink);
     connect(m_link_thread_, &HsrSerialPortLinkThread::serialPortClosed, this, &HsrSerialPortLink::_respCloseLink);
-    //connect(m_link_thread_, &HsrSerialPortLinkThread::bytesReceived, this, &SerialPortLink::dataReceived);
+    connect(m_link_thread_, &HsrSerialPortLinkThread::bytesReceived, this, &HsrSerialPortLink::dataReceived);
 	//m_link_thread_->start();
 }
 

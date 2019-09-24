@@ -104,7 +104,7 @@ void HsrSerialPortLinkThread::run()
     connect(this, &HsrSerialPortLinkThread::_invokeClose, m_link_worker, &HsrSerialPortLinkWorker::closeLink);
     connect(m_link_worker, &HsrSerialPortLinkWorker::serialPortClosed, this, &HsrSerialPortLinkThread::serialPortClosed);
     connect(this, &HsrSerialPortLinkThread::_invokeSendData, m_link_worker, &HsrSerialPortLinkWorker::sendData);
-	//connect(m_link_worker, &SerialPortLinkWorker::bytesReceived, this, &SerialPortLinkThread::bytesReceived);
+	connect(m_link_worker, &HsrSerialPortLinkWorker::bytesReceived, this, &HsrSerialPortLinkThread::bytesReceived);
 
 	//稍稍延时一点  防止调用者初始化尚未完成,后续采用其他方案
 	m_ready_ = true;
